@@ -1,6 +1,8 @@
-var gulp 	= require('gulp');
-	sass 	= require('gulp-sass');
-	watch 	= require('gulp-watch');
+var gulp 		= require('gulp'),
+	sass 		= require('gulp-sass'),
+	watch 		= require('gulp-watch'),
+	sourcemaps 	= require('gulp-sourcemaps'),
+	cssnano 	= require('gulp-cssnano');
 
 
 var config = {
@@ -10,11 +12,15 @@ var config = {
 
 gulp.task('style', function(){
 	gulp.src(config.scssDir + '/*.scss')
+	.pipe(sourcemaps.init())
 	.pipe(sass())
 	.on('error', sass.logError)
+	.pipe(cssnano())
+	.pipe(sourcemaps.write('maps'))
 	.pipe(gulp.dest(config.cssDir))
 
 })
+
 
 gulp.task('watch', function(){
 	watch(config.scssDir + '/**/*.scss', function(){
