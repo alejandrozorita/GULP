@@ -1,10 +1,11 @@
 body {
   font-family: Arial, sans-serif;
   font-size: 16px;
-  color: #333; }
+  color: red; }
 
 .wrap {
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 1px; }
 
 h1 {
   font-size: 2em;
