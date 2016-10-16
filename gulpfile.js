@@ -1,12 +1,13 @@
-var gulp 		= require('gulp'),
-	sass 		= require('gulp-sass'),
-	watch 		= require('gulp-watch'),
-	sourcemaps 	= require('gulp-sourcemaps'),
-	cssnano 	= require('gulp-cssnano'),
-	argv 		= require('yargs').argv,
-	gulpif 		= require('gulp-if'),
-	concat 		= require('gulp-concat'),
-	uglify 		= require('gulp-uglify');
+var gulp 			= require('gulp'),
+	sass 			= require('gulp-sass'),
+	watch 			= require('gulp-watch'),
+	sourcemaps 		= require('gulp-sourcemaps'),
+	cssnano 		= require('gulp-cssnano'),
+	argv 			= require('yargs').argv,
+	gulpif 			= require('gulp-if'),
+	concat 			= require('gulp-concat'),
+	uglify 			= require('gulp-uglify'),
+	imagemin 		= require('gulp-imagemin');
 
 var isProduction;
 if (argv.prod) {
@@ -19,7 +20,8 @@ else {
 var config = {
 	scssDir: './assets/scss',
 	cssDir: './assets/css',
-	jsDir: './assets/js'
+	jsDir: './assets/js',
+	imgDir: './assets/img'
 };
 
 gulp.task('style', function(){
@@ -48,6 +50,19 @@ gulp.task('compress',['concat'], function(){
 	.pipe(uglify())
 	.on('error', console.error.bind(console))
 	.pipe(gulp.dest(config.jsDir + '/min'))
+});
+
+
+gulp.task('imagemin', function(){
+	return gulp.src([
+		config.imgDir + '/*.png',
+		config.imgDir + '/*.jpg',
+		config.imgDir + '/*.jpge',
+		config.imgDir + '/*.ico'
+		])
+	.pipe(imagemin())
+	.on('error', console.error.bind(console))
+	.pipe(gulp.dest(config.imgDir + '/opt/'))
 });
 
 gulp.task('watch', function(){
