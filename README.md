@@ -2,13 +2,13 @@
 Primeros pasos con GULP
 
 
-## INSTALACIÓN ##
+# INSTALACIÓN 
 
-@Primero instalaremos HomeBrew ejecutando desde la consola (MAC)
+Primero instalaremos HomeBrew ejecutando desde la consola (MAC)
 
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# Instalación de node
+## Instalación de node ##
 
 Podemos hacerlo desde la línea de comandos
 	brew install node
@@ -21,7 +21,7 @@ O bien descargando la última versió e instalándolo desde su web.
 https://nodejs.org/es/download/
 
 
-# Instalación de GULP
+## Instalación de GULP ##
 	npm install -g gulp
 
 	/*Verificamos su versión*/
@@ -39,6 +39,7 @@ Una vez instalado Gulp.js, NPM y NODE.js, procedemos a crear el entorno de traba
 	npm init
 
 #esto son generará el package.json
+
 	{
 	  "name": "gulp",
 	  "version": "0.0.1",
@@ -49,17 +50,20 @@ Una vez instalado Gulp.js, NPM y NODE.js, procedemos a crear el entorno de traba
 	}
 
 - Ahora creamos las dependencias en nuestro proyecto
+
 	npm install --save-dev gulp
 
 
 Una vez realizados estos pasos ya tenemos el entorno preparado para instalar empezar con el proyecto.
 
 - Para cada paqueta será necesario repetir la acción
+
 	//Es importante poner el flag --save para que lo registre en el package.json
 	npm install --save-dev gulp-xxx 
 	/* Siendo xx el nombre del paquete */
 
 Quedando el package.json de está manera
+
 	{
 	  "name": "gulp",
 	  "version": "0.0.1",
