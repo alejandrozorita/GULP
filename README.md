@@ -11,6 +11,7 @@ Primero instalaremos HomeBrew ejecutando desde la consola (MAC)
 ## Instalación de node ##
 
 Podemos hacerlo desde la línea de comandos
+
 	brew install node
 
 	/*Verificamos su versión*/
@@ -55,6 +56,10 @@ Una vez instalado Gulp.js, NPM y NODE.js, procedemos a crear el entorno de traba
 -
 
 	npm install --save-dev gulp
+
+	/* Para este proyecto, al tener ya listo package.json valdría con ejecutar*/
+
+	npm install
 
 
 Una vez realizados estos pasos ya tenemos el entorno preparado para instalar empezar con el proyecto.
