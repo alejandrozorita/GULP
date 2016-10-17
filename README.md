@@ -58,9 +58,11 @@ Una vez realizados estos pasos ya tenemos el entorno preparado para instalar emp
 
 - Para cada paqueta será necesario repetir la acción
 
-	//Es importante poner el flag --save para que lo registre en el package.json
+		
+	Es importante poner el flag --save para que lo registre en el package.json
 	npm install --save-dev gulp-xxx 
 	/* Siendo xx el nombre del paquete */
+	
 
 Quedando el package.json de está manera
 
