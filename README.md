@@ -88,3 +88,7 @@ Quedando el package.json de está manera
 	    "gulp-uglify": "^0.3.1"
 	  }
 	}
+
+
+## Si queremos que la tarea watch se ejectue en background, ejecutaremos la tarea con con el símbolo $:
+	gulp$ watch
