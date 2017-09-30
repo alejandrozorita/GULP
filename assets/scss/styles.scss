@@ -9,9 +9,12 @@ body {
 .wrap {
     margin: 0 auto;
     
-    padding: 4px;
+    padding: 5px;
 }
 
+:fullscreen a {
+    display: flex
+}
 
 h1 {
     font-size: 2em;

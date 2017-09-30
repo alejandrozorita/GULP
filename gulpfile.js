@@ -1,13 +1,22 @@
 var gulp 			= require('gulp'),
 	sass 			= require('gulp-sass'),
+	//Crea 
 	watch 			= require('gulp-watch'),
+	//Genera los mapas de CSS
 	sourcemaps 		= require('gulp-sourcemaps'),
 	cssnano 		= require('gulp-cssnano'),
 	argv 			= require('yargs').argv,
 	gulpif 			= require('gulp-if'),
+	//Concatenar ficheros
 	concat 			= require('gulp-concat'),
+	//Condicional IF
 	uglify 			= require('gulp-uglify'),
-	imagemin 		= require('gulp-imagemin');
+	//Minimizar IMG
+	imagemin 		= require('gulp-imagemin'),
+	postcss 		= require('gulp-postcss'),
+	autoprefixer 	= require('autoprefixer');
+
+
 
 var isProduction;
 if (argv.prod) {
@@ -23,6 +32,18 @@ var config = {
 	jsDir: './assets/js',
 	imgDir: './assets/img'
 };
+
+gulp.task('css', function () {
+    var processors = [
+        autoprefixer({browsers: ['last 1 version']}),
+        cssnano(),
+    ];
+    return gulp.src(config.scssDir + '/*.scss')
+    	.pipe(sass())
+        .pipe(postcss(processors))
+        .pipe(gulp.dest(config.cssDir));
+});
+
 
 gulp.task('style', function(){
 	return gulp.src(config.scssDir + '/*.scss')
